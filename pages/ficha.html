@@ -289,60 +289,58 @@
     var url_string = window.location.href;
     var url = new URL(url_string);
     var c = url.searchParams.get("data");
+
+    var obj = {
+        dni: "*",
+        nombre: "*",
+        apellido: "*",
+        telefono: "*",
+        domicilio: "*",
+        partido_depto:"*",
+        localidad: "*",
+        partido: "[NO COMPLETAR]",
+        clase: "",
+        sex: "*",
+        dd: "*",
+        mm: "*",
+        aaaa: "*",
+        lugar_nacimiento: "*",
+        profesion: "*",
+        estado_civil: "*",
+        provincia:"*",
+        cuartel:"*",
+        calle:"*",
+        numero:"*",
+        piso:"*",
+        depto:"*",
+    };
     if (c != null) {
         var data = b64DecodeUnicode(c);
         console.log(data);
-        var obj = {
-            dni: "*",
-            nombre: "*",
-            apellido: "*",
-            telefono: "*",
-            domicilio: "*",
-            partido_depto:"*",
-            localidad: "*",
-            partido: "[NO COMPLETAR]",
-            clase: "",
-            sex: "*",
-            dd: "*",
-            mm: "*",
-            aaaa: "*",
-            lugar_nacimiento: "*",
-            profesion: "*",
-            estado_civil: "*",
-            provincia:"*",
-            cuartel:"*",
-            calle:"*",
-            numero:"*",
-            piso:"*",
-            depto:"*",
-
-        };
         obj = Object.assign(obj, JSON.parse(data));
-        //consoleLog(data);
-        //{"dni":"2846305","nombre":"EMANUEL JAVIER","apellido":"DELMONTE","telefono":"1159234035","domicilio":"MADRES PLAZA MAYO 3351","localidad":"QUILMES OESTE"}
-        $("#partido").text(obj.partido);
-        $("#tipo").text("DNI");
-        $("#matricula").text(obj.dni);
-        $("#apellido").text(obj.apellido);
-        $("#nombre").text(obj.nombre);
-        $("#clase").text(obj.aaaa);
-        $("#dd").text(obj.dd);
-        $("#mm").text(obj.mm);
-        $("#aaaa").text(obj.aaaa);
-        $("#profesion").text(obj.profesion);
-        $("#estado_civil").text(obj.estado_civil);
-        $("#sex").text(obj.sex);
-        $("#lugar_nacimiento").text(obj.lugar_nacimiento);
-        $("#distrito_electoral").text(obj.provincia);
-        $("#partido_departamento").text(obj.partido_depto);
-        $("#ciudad").text(obj.localidad);
-        $("#cuartel").text(obj.cuartel);
-        $("#calle").text(obj.calle);
-        $("#numero").text(obj.numero);
-        $("#piso").text(obj.piso);
-        $("#depto").text(obj.depto);
-        console.log(obj);
     }
+    $("#partido").text(obj.partido);
+    $("#tipo").text("DNI");
+    $("#matricula").text(obj.dni);
+    $("#apellido").text(obj.apellido);
+    $("#nombre").text(obj.nombre);
+    $("#clase").text(obj.aaaa);
+    $("#dd").text(obj.dd);
+    $("#mm").text(obj.mm);
+    $("#aaaa").text(obj.aaaa);
+    $("#profesion").text(obj.profesion);
+    $("#estado_civil").text(obj.estado_civil);
+    $("#sex").text(obj.sex);
+    $("#lugar_nacimiento").text(obj.lugar_nacimiento);
+    $("#distrito_electoral").text(obj.provincia);
+    $("#partido_departamento").text(obj.partido_depto);
+    $("#ciudad").text(obj.localidad);
+    $("#cuartel").text(obj.cuartel);
+    $("#calle").text(obj.calle);
+    $("#numero").text(obj.numero);
+    $("#piso").text(obj.piso);
+    $("#depto").text(obj.depto);
+    console.log(obj);
 
     function b64DecodeUnicode(str) {
         // Going backwards: from bytestream, to percent-encoding, to original string.
